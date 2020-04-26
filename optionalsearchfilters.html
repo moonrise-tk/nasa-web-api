@@ -1,0 +1,144 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .text {
+            color: var(--second);
+            font-family: Roboto;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .right-align {
+            text-align: right;
+        }
+
+        #optional-search-filters-text {
+            float: right;
+            margin-top: 5px;
+            transition: 0.25s ease-in-out;
+        }
+
+        #optional-search-filters-text:hover {
+            color: var(--main-accent);
+            cursor: pointer;
+        }
+
+        #search-modal-content {
+            width: 60%;
+            margin: 25% auto;
+        }
+
+        #search-modal-start-date-created {
+            width: 20%;
+        }
+
+        #search-modal-end-date-created {
+            width: 20%;
+        }
+
+        #search-modal-center {
+            width: 41%;
+        }
+
+        #search-modal-keywords {
+            width: 60%;
+        }
+
+        .search-filter-text {
+            color: var(--second);
+        }
+
+        .search-input {
+            text-align: center;
+        }
+
+        .search-description {
+            font-size: 15px;
+        }
+
+        #favorites {
+            clear: left;
+            float: left;
+            margin-top: 5px;
+        }
+
+        #favorites[selected="false"] {
+            color: var(--second);
+            transition: 0.25s ease-in-out;
+        }
+
+        #favorites[selected="false"]:hover {
+            color: var(--main-accent);
+            cursor: pointer;
+        }
+
+        #favorites[selected="true"] {
+            color: var(--main-accent);
+        }
+
+        #favorites[selected="true"]:hover {
+            cursor: pointer;
+        }
+
+        #clear-button {
+            opacity: 0;
+            position: absolute;
+            float: left;
+            transition: 0.25s ease-in-out;
+            display: inline-block;
+            /*margin-left: 10px;*/
+            margin-top: 5px;
+            /*display: none;*/
+        }
+
+        #clear-button:hover {
+            color: var(--main-accent);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<div id="search-modal" class="modal">
+    <!-- Modal content -->
+    <div id="search-modal-content" class="modal-content">
+        <center>
+            <span id="search-close" class="close">&times;</span>
+            <div id="search-modal-title" style="font-weight: 900;font-size: 60;text-align:center;">Optional search
+                filters</div>
+
+            <div class="search-filter-text">Year bounds: </div>
+            <div class="search-description">The start and end years as a bound for your search. You can specify one,
+                both, or neither.</div>
+            <input id="search-modal-start-date-created" class="search-input" onfocus="this.value=''">
+            <input id="search-modal-end-date-created" class="search-input" onfocus="this.value=''">
+            <div class="search-filter-text">Center: </div>
+            <div class="search-description">The NASA center associated with your search.</div>
+            <input id="search-modal-center" class="search-input" onfocus="this.value=''">
+            <div class="search-filter-text">Keywords: </div>
+            <div class="search-description">Separate your values by commas.</div>
+            <input id="search-modal-keywords" class="search-input" onfocus="this.value=''">
+        </center>
+        <div data-id="fcde912"
+            class="elementor-element elementor-element-fcde912 elementor-align-center elementor-widget elementor-widget-button"
+            data-element_type="button.default" id="apply-search-button">
+
+            <div class="elementor-widget-container">
+                <div class="elementor-button-wrapper">
+                    <a class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                        <span class="elementor-button-content-wrapper">
+                            <span class="elementor-button-text">
+                                Apply
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<i class="material-icons" selected="false" id="favorites">favorite</i>
+<span id="clear-button-container">
+    <a class="text" id="clear-button">Clear favorites</a>
+</span>
+<span class="right-align">
+    <a class="text" id="optional-search-filters-text">Optional search filters</a>
+</span>

@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+:root {
+    --main: #23a455;
+    --main-accent: #61ce70;
+    --main-bg: #fefefe;
+    --second: #383838;
+    --second-accent: #808080;
+}
+
+/* ---- general ---- */
+
+body {
+    text-align: center;
+}
+
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--second);
+}
+
+#body-container {
+    padding: 80px;
+    padding-top: 150px;
+}
+
+.widget-container {
+    padding: 30px;
+    font-family: "Roboto", Sans-serif;
+}
+
+.button {
+    background-color: var(--main);
+    border-radius: 3px;
+    transition: 0.3s;
+    box-sizing: border-box;
+    padding: 12px 24px;
+}
+
+.button:hover {
+    background-color: var(--main-accent);
+}
+
+.button-text {
+    color: white;
+}
+
+@keyframes borderForward {
+    from {
+        border-bottom-style: solid;
+    }
+    to {
+        border-color: var(--main-accent);
+    }
+}
+
+@keyframes borderBackward {
+    from {
+        border-color: var(--main-accent);
+    }
+    to {
+        border-color: var(--second);
+    }
+}
+
+.text-input {
+    text-align: left;
+    color: var(--second);
+    border: none;
+    border-bottom-style: solid;
+    animation-name: borderBackward;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.text-input:focus {
+    outline: none;
+    animation-name: borderForward;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+/* ---- search bar ---- */
+
+#searchform {
+    font-size: 20px;
+    width: 100%;
+}
+
+/* ---- menu items ---- */
+
+.text {
+    color: var(--second);
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.right-align {
+    text-align: right;
+}
+
+/* ---- search filter modal ---- */
+
+#optional-search-filters-text {
+    float: right;
+    margin-top: 5px;
+    transition: 0.25s ease-in-out;
+}
+
+#optional-search-filters-text:hover {
+    color: var(--main-accent);
+    cursor: pointer;
+}
+
+#search-modal-content {
+    width: 60%;
+    margin: 25% auto;
+}
+
+#search-modal-start-date-created {
+    width: 20%;
+}
+
+#search-modal-end-date-created {
+    width: 20%;
+}
+
+#search-modal-center {
+    width: 41%;
+}
+
+#search-modal-keywords {
+    width: 60%;
+}
+
+#search-modal-title {
+    font-size: 25px;
+    font-weight: 900;
+    color: var(--main);
+    padding-bottom: 15px;
+    text-decoration: underline;
+}
+
+.search-filter-text {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+.search-description {
+    font-size: 15px;
+    font-weight: 100;
+    padding-bottom: 20px;
+}
+
+.search-filter-text, .search-description {
+    color: var(--second);
+}
+
+#favorites {
+    clear: left;
+    float: left;
+    margin-top: 5px;
+}
+
+#favorites[selected="false"] {
+    color: var(--second);
+    transition: 0.25s ease-in-out;
+}
+
+#favorites[selected="false"]:hover {
+    color: var(--main-accent);
+    cursor: pointer;
+}
+
+#favorites[selected="true"] {
+    color: var(--main-accent);
+}
+
+#favorites[selected="true"]:hover {
+    cursor: pointer;
+}
+
+#clear-button {
+    opacity: 0;
+    position: absolute;
+    float: left;
+    transition: 0.25s ease-in-out;
+    display: inline-block;
+    /*margin-left: 10px;*/
+    margin-top: 5px;
+    /*display: none;*/
+}
+
+#clear-button:hover {
+    color: var(--main-accent);
+    cursor: pointer;
+}
+
+/*clearfix */
+
+.grid {
+    column-count: 3;
+    column-gap: 1em;
+}
+
+.grid:after {
+    content: '';
+    display: inline-block;
+    clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+    background-color: #000000;
+    opacity: 1;
+    width: auto;
+    height: auto;
+    margin: 0 0 1em;
+    transition: 0.3s;
+    /*float: left;*/
+    display: inline-block;
+    cursor: pointer;
+    /*border: 2px solid #333;*/
+    /*border-color: hsla(0, 0%, 0%, 0.5);*/
+    border-radius: 5px;
+}
+
+.grid-item:hover {
+    box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.07);
+    cursor: pointer;
+}
+
+.grid-item img {
+    display: block;
+    width: auto;
+    object-fit: scale-down;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.grid-item:hover img {
+    opacity: 0.3;
+}
+
+.grid-item .overlayTitle {
+    display: none;
+    transition: 0.3s linear;
+    text-align: left;
+    user-select: none;
+    pointer-events: none;
+}
+
+.grid-item:hover .overlayTitle {
+    display: block;
+}
+
+/* ---- Next and Previous ---- */
+
+#next-button {
+    display: none;
+    color: var(--second);
+    float: right;
+    font-size: 30px;
+    transition: 0.25s ease-in-out;
+}
+
+#next-button:hover {
+    color: var(--main-accent);
+    cursor: pointer;
+}
+
+#prev-button {
+    display: none;
+    color: var(--second);
+    float: left;
+    font-size: 30px;
+    transition: 0.25s ease-in-out;
+}
+
+#prev-button:hover {
+    color: var(--main-accent);
+    cursor: pointer;
+}
+
+/* ---- The Modal (background) ---- */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 10;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    -webkit-animation-name: fadeIn;
+    /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: var(--main-bg);
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    height: auto;
+    overflow: auto;
+    max-height: 600px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+/*Style for media inside modal content*/
+
+.modal-media {
+    display: none;
+    object-fit: scale-down;
+    min-height: 400px;
+    max-height: 400px;
+    max-width: 400px;
+    float: left;
+    padding: 7px;
+    padding-right: 14px;
+}
+
+.modal-media::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    display: none;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.overlay {
+    width: auto;
+    height: auto;
+    opacity: 1;
+    color: #000;
+}
+
+.grid-item:hover .overlay {
+    opacity: 0.75;
+}
+
+.overlayTitle {
+    color: white;
+    font-size: auto;
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+}
+
+#favorite-button[selected="false"] {
+    /*display: none;*/
+    color: var(--second);
+    transition: 0.25s ease-in-out;
+    /*float: left;*/
+}
+
+#favorite-button[selected="false"]:hover {
+    color: var(--main-accent);
+    cursor: pointer;
+}
+
+#favorite-button[selected="true"] {
+    /*display: none;*/
+    color: var(--main-accent);
+    /*float: left;*/
+}
+
+#favorite-button[selected="true"]:hover {
+    cursor: pointer;
+}
+
+#favorite-grid {
+    display: none;
+}

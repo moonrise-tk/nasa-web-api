@@ -1,0 +1,36 @@
+<head>
+        <style>
+        :root {
+          --second: #7a7a7a;
+          --second-accent: #808080;
+        }
+        @keyframes borderForward{
+            from{border-bottom-style: solid;}
+            to{border-color: var(--main-accent);}
+        }
+        @keyframes borderBackward{
+            from{border-color: var(--main-accent);}
+            to{border-color: var(--second);}
+        }
+        input{
+            text-align: left;
+            color: var(--second);
+            width: 80%;
+            border: none;
+            border-bottom-style: solid;
+            animation-name: borderBackward;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        input:focus{
+            outline: none;
+            animation-name: borderForward;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        </style>
+    </head>
+    <center>
+        <input id="searchform" value="Enter search terms . . ." onfocus="if(this.value == 'Enter search terms . . .'){this.value=''}"> 
+    </center>
+    
