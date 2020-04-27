@@ -13,7 +13,6 @@ let modalAudio;
 let modalVideo;
 let modalAudioSource;
 let modalVideoSource;
-let closeSpan;
 let searchModal;
 let searchStartDate;
 let searchApply;
@@ -47,7 +46,6 @@ jQuery(document).ready(function () {
     modalVideo = document.getElementById('modal-video');
     modalAudioSource = document.getElementById('audio-source');
     modalVideoSource = document.getElementById('video-source');
-    closeSpan = document.getElementById('search-close');
     searchModal = document.getElementById('search-modal');
     searchStartDate = document.getElementById('search-modal-start-date-created');
     searchApply = document.getElementById('apply-search-button');
@@ -140,6 +138,10 @@ jQuery(document).ready(function () {
             clearSearchModal();
         }
     }
+
+    window.addEventListener('resize', function () {
+        $(".grid-item-media").width($(grid).width() * 21.0 / 65.0);
+    }, true);
 });
 
 //Clear out a grid
@@ -185,9 +187,6 @@ function animateClearOut() {
 // Make the optional search filters modal invisible
 function clearSearchModal() {
     searchModal.style.display = "none";
-}
-closeSpan.onclick = function () {
-    clearSearchModal();
 }
 
 function showSearchModal() {
@@ -303,17 +302,9 @@ function showItem(data, Grid) {
     var nasa_id = data.nasa_id;
     var media_type = data.media_type;
     var title = data.title;
-    var date_created = data.date_created;
-    var center = data.center;
+
     sessionStorage.setItem(nasa_id, JSON.stringify(data));
-    //Not every nasa asset has a useful description
-    //We don't show the description if it's the same as the title or if it doesn't exist.
-    if (data.description && title != data.description) {
-        var description = data.description;
-    }
-    else {
-        var description = null;
-    }
+
     if (media_type === "image" || media_type === "video") {
         var src = "https://images-assets.nasa.gov/" + media_type + "/" +
             nasa_id + "/" + nasa_id + "~thumb.jpg"
@@ -334,11 +325,12 @@ function showItem(data, Grid) {
     img.setAttribute('onclick', 'showData(this)');
     img.setAttribute('onerror', 'imgNotFound(this)');
     img.setAttribute('id', nasa_id);
-    img.setAttribute('class', media_type);
+    img.setAttribute('class', media_type + " grid-item-media");
     img.src = src;
     overlayTitle.textContent = title;
     div.appendChild(img);
     div.appendChild(overlayTitle);
+    $(img).width($(grid).width() * 21.0 / 65.0);
     Grid.appendChild(div);
 
 }

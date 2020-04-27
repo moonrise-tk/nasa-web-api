@@ -14,12 +14,17 @@ body {
     text-align: center;
 }
 
+.material-icons {
+    padding: 5px;
+}
+
 * {
     text-decoration: none;
     margin: 0;
     padding: 0;
     font-weight: 500;
     font-size: 15px;
+    font-family: "Roboto", Sans-serif;
     color: var(--second);
 }
 
@@ -30,7 +35,7 @@ body {
 
 .widget-container {
     padding: 30px;
-    font-family: "Roboto", Sans-serif;
+    overflow: auto;
 }
 
 .button {
@@ -117,11 +122,6 @@ body {
     cursor: pointer;
 }
 
-#search-modal-content {
-    width: 60%;
-    margin: 25% auto;
-}
-
 #search-modal-start-date-created {
     width: 20%;
 }
@@ -138,12 +138,10 @@ body {
     width: 60%;
 }
 
-#search-modal-title {
-    font-size: 25px;
+#search-modal-title, #modal-title {
+    font-size: 35px;
     font-weight: 900;
-    color: var(--main);
     padding-bottom: 15px;
-    text-decoration: underline;
 }
 
 .search-filter-text {
@@ -241,7 +239,8 @@ body {
 
 .grid-item img {
     display: block;
-    width: auto;
+    /* width: 32.3%;
+    height: 100%; */
     object-fit: scale-down;
     border-radius: 5px;
     transition: 0.3s ease;
@@ -322,13 +321,16 @@ body {
 
 .modal-content {
     background-color: var(--main-bg);
-    margin: 15% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
     width: 80%;
     /* Could be more or less, depending on screen size */
     height: auto;
     overflow: auto;
+    max-height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    padding: 20px;
     max-height: 600px;
     text-align: left;
     border-radius: 5px;
@@ -336,21 +338,35 @@ body {
 
 /*Style for media inside modal content*/
 
+.modal-media-container {
+    display: flex;
+    justify-content: center;
+    float: left;
+    max-height: 100%;
+    max-width: 40%;
+    padding: 7px;
+    text-align: center;
+    align-items: center;
+}
+
 .modal-media {
     display: none;
     object-fit: scale-down;
-    min-height: 400px;
-    max-height: 400px;
-    max-width: 400px;
-    float: left;
-    padding: 7px;
-    padding-right: 14px;
+    width: 100%;
+    max-height: 100%;
+    margin: auto;
 }
 
 .modal-media::after {
     content: "";
     clear: both;
     display: table;
+}
+
+.modal-text {
+    float: right;
+    text-align: left;
+    max-width: 55%;
 }
 
 /* The Close Button */
@@ -382,7 +398,7 @@ body {
 
 .overlayTitle {
     color: white;
-    font-size: auto;
+    font-size: 20;
     position: absolute;
     bottom: 0px;
     left: 10px;

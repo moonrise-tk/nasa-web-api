@@ -1,171 +1,129 @@
 <html>
-    <head>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="NasaWebApi.css">
-        <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="NasaWebApi.js"></script>
-    </head>
 
-    <body>
-        <div id="body-container">
-            <div class="widget-container">
-                <center>
-                    <input class="text-input" id="searchform"
-                        value="Enter search terms . . .">
-                </center>
-            </div>
-            <div class="widget-container button-wrapper">
-                <center>
-                    <a href="#" class="button"
-                        role="button" id="button-nasa-api">
-                        <span class="button-text">Search NASA database</span>
-                    </a>
-                </center>
-            </div>
-            <div class="widget-container">
-                <div id="search-modal" class="modal">
-                    <!-- Modal content -->
-                    <div id="search-modal-content" class="modal-content">
-                        <center>
-                            <span id="search-close" class="close">×</span>
-                            <div id="search-modal-title">Optional
-                                search filters</div>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="NasaWebApi.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="NasaWebApi.js"></script>
+</head>
 
-                            <div class="search-filter-text">Year bounds: </div>
-                            <div class="search-description">The start and end
-                                years as a bound for your search. You can
-                                specify one, both, or neither.</div>
-                            <input id="search-modal-start-date-created"
-                                class="text-input search-text-input"
-                                onfocus="this.value=''">
-                            <input id="search-modal-end-date-created"
-                                class="text-input search-text-input"
-                                onfocus="this.value=''">
-                            <div class="search-filter-text">Center: </div>
-                            <div class="search-description">The NASA center
-                                associated with your search.</div>
-                            <input id="search-modal-center" class="text-input
-                                search-text-input"
-                                onfocus="this.value=''">
-                            <div class="search-filter-text">Keywords: </div>
-                            <div class="search-description">Separate your values
-                                by commas.</div>
-                            <input id="search-modal-keywords"
-                                class="text-input search-text-input"
-                                onfocus="this.value=''">
-                        </center>
-                        <div data-id="fcde912" class="elementor-element
-                            elementor-element-fcde912 elementor-align-center
-                            elementor-widget elementor-widget-button"
-                            data-element_type="button.default"
-                            id="apply-search-button">
+<body>
+    <div id="body-container">
+        <div class="widget-container">
+            <center>
+                <input class="text-input" id="searchform" value="Enter search terms . . .">
+            </center>
+        </div>
+        <div class="widget-container button-wrapper">
+            <center>
+                <a href="#" class="button" role="button" id="button-nasa-api">
+                    <span class="button-text">Search NASA database</span>
+                </a>
+            </center>
+        </div>
+        <div class="widget-container">
+            <div id="search-modal" class="modal">
+                <!-- Modal content -->
+                <div id="search-modal-content" class="modal-content">
+                    <center>
+                        <div id="search-modal-title">Optional
+                            search filters</div>
 
-                            <div class="elementor-widget-container">
-                                <div class="elementor-button-wrapper">
-                                    <a class="elementor-button-link
-                                        elementor-button elementor-size-sm"
-                                        role="button">
-                                        <span
-                                            class="elementor-button-content-wrapper">
-                                            <span class="elementor-button-text">
-                                                Apply
-                                            </span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="search-filter-text">Year bounds: </div>
+                        <div class="search-description">The start and end
+                            years as a bound for your search. You can
+                            specify one, both, or neither.</div>
+                        <input id="search-modal-start-date-created" class="text-input search-text-input"
+                            onfocus="this.value=''">
+                        <input id="search-modal-end-date-created" class="text-input search-text-input"
+                            onfocus="this.value=''">
+                        <div class="search-filter-text">Center: </div>
+                        <div class="search-description">The NASA center
+                            associated with your search.</div>
+                        <input id="search-modal-center" class="text-input
+                                search-text-input" onfocus="this.value=''">
+                        <div class="search-filter-text">Keywords: </div>
+                        <div class="search-description">Separate your values
+                            by commas.</div>
+                        <input id="search-modal-keywords" class="text-input search-text-input" onfocus="this.value=''">
+                        <div class="widget-container button-wrapper">
+                            <center>
+                                <a href="#" class="button" role="button" id="apply-search-button">
+                                    <span class="button-text">Apply</span>
+                                </a>
+                            </center>
                         </div>
-                    </div>
+                    </center>
                 </div>
-                <i class="material-icons" selected="false" id="favorites">favorite</i>
-                <span id="clear-button-container">
-                    <a class="text" id="clear-button">Clear favorites</a>
-                </span>
-                <span class="right-align">
-                    <a class="text" id="optional-search-filters-text">Optional
-                        search filters</a>
-                </span>
             </div>
-            <div class="widget-container">
-                <div id="modal" class="modal">
-                    <!-- Modal content -->
-                    <div id="modal-content" class="modal-content">
-                        <img id="modal-image" class="modal-media"
-                            onerror="imgNotFound(this)">
-                        <audio id="modal-audio" class="modal-media"
-                            onerror="imgNotFound(this)" controls>
+            <i class="material-icons" selected="false" id="favorites">favorite</i>
+            <span id="clear-button-container">
+                <a class="text" id="clear-button">Clear favorites</a>
+            </span>
+            <span class="right-align">
+                <a class="text" id="optional-search-filters-text">Optional
+                    search filters</a>
+            </span>
+        </div>
+        <div class="widget-container">
+            <div id="modal" class="modal">
+                <!-- Modal content -->
+                <div id="modal-content" class="modal-content">
+                    <div class="modal-media-container">
+                        <img id="modal-image" class="modal-media" onerror="imgNotFound(this)">
+                        <audio id="modal-audio" class="modal-media" onerror="imgNotFound(this)" controls>
                             <source id="audio-source" type="audio/mpeg">
                             Your browser does not support the audio tag
                         </audio>
-                        <video id="modal-video" class="modal-media"
-                            onerror="imgNotFound(this)" controls>
+                        <video id="modal-video" class="modal-media" onerror="imgNotFound(this)" controls>
                             <source id="video-source" type="video/mp4">
                             Your browser does not support the video tag
                         </video>
+                    </div>
+                    <div class="modal-text">
                         <span id="close-button" class="close">&times;</span>
-                        <div id="modal-title" style="font-weight: 900;font-size:
-                            60"></div>
-                        <div id="modal-description"></div>
-                        <span style="font-weight: 700;">Date created: </span>
-                        <div id="modal-date-created"></div>
-                        <span style="font-weight: 700;">Center: </span>
-                        <div id="modal-center"></div>
-                        <span style="font-weight: 700;">Keywords: </span>
-                        <div id="modal-keywords"></div>
-                        <i class="material-icons" id="favorite-button">favorite</i>
-                        <!-- The following is the button -->
-                        <div data-id="fcde912" class="elementor-element
-                            elementor-element-fcde912
-                            elementor-align-center elementor-widget
-                            elementor-widget-button"
-                            data-element_type="button.default"
-                            id="find-similar-button">
-                            <div class="elementor-widget-container">
-                                <div class="elementor-button-wrapper">
-                                    <a href="#" class="elementor-button-link
-                                        elementor-button elementor-size-sm"
-                                        role="button" id="button-nasa-api">
-                                        <span
-                                            class="elementor-button-content-wrapper">
-                                            <span class="elementor-button-text">
-                                                Find similar by keywords
-                                            </span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
+                        <div id="modal-title"></div>
+                        <div id="modal-description" class="search-description"></div>
+                        <span class="search-filter-text">Date created: </span>
+                        <div id="modal-date-created" class="search-description"></div>
+                        <span class="search-filter-text">Center: </span>
+                        <div id="modal-center" class="search-description"></div>
+                        <span class="search-filter-text">Keywords: </span>
+                        <div id="modal-keywords" class="search-description"></div>
+                        <div class="widget-container button-wrapper">
+                            <center>
+                                <i class="material-icons" id="favorite-button">favorite</i>
+                                <a href="#" class="button" role="button" id="find-similar-button">
+                                    <span class="button-text">Find similar by keywords</span>
+                                </a>
+                            </center>
                         </div>
-
-
                     </div>
 
                 </div>
-            </div>
-            <div class="widget-container">
-                <link rel="stylesheet"
-                    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-                    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-                    crossorigin="anonymous">
-                <p id="metadata"></p>
-                <p id="favorites-metadata"></p>
-                <i id="prev-button" class="fas fa-arrow-left"
-                    onclick="sendHTTP(goPrev(), parseResponse);"></i>
-                <i id="next-button" class="fas fa-arrow-right"
-                    onclick="sendHTTP(goNext(), parseResponse);"></i>
-            </div>
 
-            <!-- The grid to contain grid items -->
-            <center>
-                <div id="grid" class="grid">
-                </div>
-            </center>
-            <center>
-                <div id="favorite-grid" class="grid">
-                </div>
-            </center>
+            </div>
         </div>
-    </body>
+        <div class="widget-container">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+                integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+                crossorigin="anonymous">
+            <p id="metadata"></p>
+            <p id="favorites-metadata"></p>
+            <i id="prev-button" class="fas fa-arrow-left" onclick="sendHTTP(goPrev(), parseResponse);"></i>
+            <i id="next-button" class="fas fa-arrow-right" onclick="sendHTTP(goNext(), parseResponse);"></i>
+        </div>
+
+        <!-- The grid to contain grid items -->
+        <center>
+            <div id="grid" class="grid">
+            </div>
+        </center>
+        <center>
+            <div id="favorite-grid" class="grid">
+            </div>
+        </center>
+    </div>
+</body>
 
 </html>
