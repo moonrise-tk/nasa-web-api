@@ -220,7 +220,8 @@ $('#searchform').on("paste", function (e) {
 });
 // Clear the modal (the window opened when you click on a search result)
 function clearModal() {
-    modal.style.display = "none";
+    // modal.style.display = "none";
+    modal.setAttribute("visible", "false");
     modalVideo.pause();
     modalAudio.pause()
     modalVideo.style.display = "none";
@@ -289,10 +290,10 @@ function parseLinks(links) {
         }
     }
     if (nextLink) {
-        nextButton.style.display = "inline-block";
+        nextButton.style.display = "inline";
     }
     if (prevLink) {
-        prevButton.style.display = "inline-block";
+        prevButton.style.display = "inline";
     }
 }
 function goNext() {
@@ -442,7 +443,9 @@ function showData(element) {
     }
     modalCenter.textContent = data.center;
     modalDateCreated.textContent = data.date_created;
-    modalKeywords.textContent = data.keywords.toString();
+    if (data.keywords) {
+        modalKeywords.textContent = data.keywords.join(', ');
+    }
     if (!localStorage.getItem(nasa_id)) {
         favoriteIcon.setAttribute('selected', 'false');
     }
@@ -456,6 +459,9 @@ function showData(element) {
             modalImage.src = src;
             modalImage.setAttribute('nasa_id', nasa_id);
             modalImage.style.display = "block";
+            modalImage.onload = function () {
+                modal.setAttribute("visible", "true");
+            }
             break;
         case "video":
             var src = "https://images-assets.nasa.gov/video/" +
@@ -465,6 +471,7 @@ function showData(element) {
             modalVideo.load();
             modalVideo.play();
             modalVideo.style.display = "block";
+            modal.setAttribute("visible", "true");
             break;
         case "audio":
             var src = "https://images-assets.nasa.gov/audio/" +
@@ -474,12 +481,16 @@ function showData(element) {
             modalAudio.load();
             modalAudio.play();
             modalAudio.style.display = "block";
+            modal.setAttribute("visible", "true");
+
             break;
         default:
             console.log(media_type);
             break;
     }
-    modal.style.display = "block";
+
+
+    // modal.style.display = "block";
 
 }
 //The nasa assets aren't super clean. Media can exist in different formats across collections

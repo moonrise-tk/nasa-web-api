@@ -179,7 +179,7 @@ body {
 #search-modal-title, #modal-title {
     font-size: 35px;
     font-weight: 900;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
 }
 
 .search-text-input {
@@ -353,63 +353,75 @@ body {
     /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
     /* Black w/ opacity */
+    justify-content: center;
+}
+
+.modal[visible="true"] {
+    display: flex;
     -webkit-animation-name: fadeIn;
     /* Fade in the background */
     -webkit-animation-duration: 0.4s;
     animation-name: fadeIn;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.modal[visible="false"] {
+    display: none;
 }
 
 /* Modal Content/Box */
 
 .modal-content {
+    display: inline-flex;
     background-color: var(--main-bg);
-    width: 80%;
+    /* max-width: 80%; */
     /* Could be more or less, depending on screen size */
-    height: auto;
+    /* height: auto; */
     overflow: auto;
-    max-height: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7%;
-    margin-bottom: 7%;
+    max-height: 85%;
     padding: 20px;
-    max-height: 600px;
-    text-align: left;
+    text-align: center;
     border-radius: 5px;
 }
 
 /*Style for media inside modal content*/
 
 .modal-media-container {
-    display: flex;
-    justify-content: center;
-    float: left;
+    display: inline-block;
+    /* justify-content: center; */
+    /* float: left; */
     max-height: 100%;
     max-width: 40%;
-    padding: 7px;
+    margin: 0;
+    margin-right: 20px;
     text-align: center;
     align-items: center;
+    vertical-align: top;
 }
 
 .modal-media {
     display: none;
-    object-fit: scale-down;
+    object-fit: contain;
     width: 100%;
-    max-height: 100%;
+    /* max-height: 100%; */
     margin: auto;
 }
 
-.modal-media::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
 .modal-text {
-    float: right;
+    display: inline-block;
     text-align: left;
-    max-width: 55%;
+    max-width: 400px;
+    vertical-align: top;
 }
 
 #modal-buttons {
@@ -448,7 +460,7 @@ body {
 
 .overlayTitle {
     color: white;
-    font-size: 20;
+    font-size: 20px;
     position: absolute;
     bottom: 0px;
     left: 10px;
