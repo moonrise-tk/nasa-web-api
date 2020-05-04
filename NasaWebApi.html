@@ -2,12 +2,24 @@
 
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link id="theme" rel="stylesheet" href="regularTheme.css">
     <link rel="stylesheet" href="NasaWebApi.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="NasaWebApi.js"></script>
 </head>
 
 <body>
+    <div id="header">
+        <div id="toggle-switch-ring">
+            <div id="toggle-switch" selected="false">
+            </div>
+        </div>
+        <i class="material-icons" selected="false" id="help-icon">help</i>
+        <a href="https://github.com/tklightningfast/nasa-web-api" target="_blank">
+            <img src="images/GitHub-Logos/GitHub_Logo.png" height="25px" id="github-logo">
+        </a>
+
+    </div>
     <div id="body-container">
         <div class="widget-container">
             <center>
@@ -19,6 +31,7 @@
                 <a href="#" class="button" role="button" id="button-nasa-api">
                     <span class="button-text">Search NASA database</span>
                 </a>
+
             </center>
         </div>
         <div class="widget-container">
@@ -90,13 +103,14 @@
                         <div id="modal-center" class="search-description"></div>
                         <span class="search-filter-text">Keywords: </span>
                         <div id="modal-keywords" class="search-description"></div>
-                        <div class="widget-container button-wrapper">
-                            <center>
+                        <div class="button-wrapper" id="modal-buttons">
+                            <span id="favorite-button-container">
                                 <i class="material-icons" id="favorite-button">favorite</i>
-                                <a href="#" class="button" role="button" id="find-similar-button">
-                                    <span class="button-text">Find similar by keywords</span>
-                                </a>
-                            </center>
+                            </span>
+
+                            <a href="#" class="button" role="button" id="find-similar-button">
+                                <span class="button-text">Find similar by keywords</span>
+                            </a>
                         </div>
                     </div>
 

@@ -139,6 +139,19 @@ jQuery(document).ready(function () {
         }
     }
 
+    $("#toggle-switch-ring").click(function () {
+        if (document.getElementById("toggle-switch").getAttribute('selected') == "false") {
+            document.getElementById("toggle-switch").setAttribute('selected', "true");
+            $("#theme").attr('href', "darkTheme.css");
+            $("#github-logo").attr('src', "images/GitHub-Logos/GitHub_Logo_White.png")
+        } else {
+            document.getElementById("toggle-switch").setAttribute('selected', "false");
+            $("#theme").attr('href', "regularTheme.css");
+            $("#github-logo").attr('src', "images/GitHub-Logos/GitHub_Logo.png")
+        }
+
+    })
+
     window.addEventListener('resize', function () {
         $(".grid-item-media").width($(grid).width() * 21.0 / 65.0);
     }, true);
@@ -200,7 +213,7 @@ function applySearch() {
     searchKeywordsText = searchKeywords.value;
 }
 //Make it so that when you paste into the search input, the formatting is not copied as well
-document.querySelector('#searchform').addEventListener("paste", function (e) {
+$('#searchform').on("paste", function (e) {
     e.preventDefault();
     var text = e.clipboardData.getData("text/plain");
     document.execCommand("insertHTML", false, text);
@@ -325,7 +338,8 @@ function showItem(data, Grid) {
     img.setAttribute('onclick', 'showData(this)');
     img.setAttribute('onerror', 'imgNotFound(this)');
     img.setAttribute('id', nasa_id);
-    img.setAttribute('class', media_type + " grid-item-media");
+    img.setAttribute('class', "grid-item-media");
+    img.setAttribute('media-type', media_type);
     img.src = src;
     overlayTitle.textContent = title;
     div.appendChild(img);
@@ -417,7 +431,8 @@ function imgNotFound(img) {
 //RETURNS:
 //  none
 function showData(element) {
-    media_type = element.className;
+    console.log("Hello");
+    media_type = element.getAttribute('media-type');
     nasa_id = element.id;
     data = JSON.parse(sessionStorage.getItem(nasa_id));
     modal.setAttribute('nasa_id', nasa_id);
@@ -460,6 +475,9 @@ function showData(element) {
             modalAudio.play();
             modalAudio.style.display = "block";
             break;
+        default:
+            console.log(media_type);
+            break;
     }
     modal.style.display = "block";
 
@@ -483,7 +501,6 @@ function checkVideoSource(element) {
     element.parentElement.play();
 }
 function checkAudioSource(element) {
-    console.log(element.parentElement.id);
     nasa_id = element.nasa_id;
     element.onerror = function () { };
     element.src = "https://images-assets.nasa.gov/audio/" +
@@ -513,7 +530,6 @@ function alert() {
 //RETURNS:
 //  final: the http request to send to the nasa server
 function parseSearch() {
-    console.log("Hello");
     var initial = jQuery('#searchform').val();
     var final = "https://images-api.nasa.gov/search?";
     //check each of the input and optional searches and if they're not empty, include them
