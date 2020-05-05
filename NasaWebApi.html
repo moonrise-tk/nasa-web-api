@@ -16,6 +16,41 @@
             </div>
         </div>
         <i class="material-icons" selected="false" id="help-icon">help</i>
+        <div id="info-modal" class="modal" visible="false">
+            <!-- Modal content -->
+            <div id="info-modal-content" class="modal-content">
+                <i class="fas fa-rocket"></i>
+                <div class="info-modal-text-container">
+                    This tool lets you access NASA's image and video library, by using NASA's media API. You can search
+                    for any terms in the search bar and filter your results using the optional search filters. Clicking
+                    on a result opens a modal that contains various information about the image.
+                </div>
+                <i class="fas fa-heart"></i>
+                <div class="info-modal-text-container">
+                    To save images for later, you
+                    can favorite them by clicking on the heart icon in their description box.
+                    To see your favorited pictures, click the heart
+                    icon, and to get out of the favorites, click the heart icon again.
+                </div>
+                <i class="fas fa-search"></i>
+                <div class="info-modal-text-container">
+                    The optional search filters let you specify dates to bound the picture by, keywords that you may
+                    want
+                    and which NASA center you want the images to be from.
+                    You can also search for
+                    similar images to a result you're looking at using the "Find Similar by Keywords" button.
+                </div>
+                <i class="fas fa-star"></i>
+                <div class="info-modal-text-container">
+                    Finally, you can share any of the images to facebook or pinterest if you wish.
+                    To see the source code for the
+                    project, the Github link for the project is on the top right. There's also a toggle that switches
+                    the
+                    website to dark mode.
+                </div>
+            </div>
+
+        </div>
         <a href="https://github.com/tklightningfast/nasa-web-api" target="_blank">
             <img src="images/GitHub-Logos/GitHub_Logo.png" height="25px" id="github-logo">
         </a>
@@ -36,7 +71,7 @@
             </center>
         </div>
         <div class="widget-container">
-            <div id="search-modal" class="modal">
+            <div id="search-modal" class="modal" visible="false">
                 <!-- Modal content -->
                 <div id="search-modal-content" class="modal-content">
                     <center>
@@ -93,27 +128,38 @@
                             <source id="video-source" type="video/mp4">
                             Your browser does not support the video tag
                         </video>
+                        <div id="modal-buttons">
+                            <i class="material-icons" id="favorite-button">favorite</i>
+                            <a id="facebook-share" target="_blank">
+                                <i class="fab material-icons fa-facebook"></i>
+                            </a>
+                            <a id="pinterest-share" target="_blank">
+                                <i class="fab material-icons fa-pinterest"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="modal-text">
                         <span id="close-button" class="close">&times;</span>
                         <div id="modal-title"></div>
-                        <div id="modal-description" class="search-description"></div>
-                        <span class="search-filter-text">Date created: </span>
-                        <div id="modal-date-created" class="search-description"></div>
-                        <span class="search-filter-text">Center: </span>
-                        <div id="modal-center" class="search-description"></div>
-                        <span class="search-filter-text">Keywords: </span>
-                        <div id="modal-keywords" class="search-description"></div>
+                        <span id="modal-description" class="search-description"></span>
+                        <div class="modal-text-container">
+                            <span class="search-filter-text">Date created: </span>
+                            <span id="modal-date-created" class="search-description"></span>
+                        </div>
+                        <div class="modal-text-container">
+                            <span class="search-filter-text">Center: </span>
+                            <span id="modal-center" class="search-description"></span>
+                        </div>
+                        <div class="modal-text-container">
+                            <span class="search-filter-text">Keywords: </span>
+                            <span id="modal-keywords" class="search-description"></span>
+                        </div>
                         <div class="button-wrapper" id="find-similar-button-wrapper">
                             <a href="#" class="button" role="button" id="find-similar-button">
                                 <span class="button-text">Find similar by keywords</span>
                             </a>
                         </div>
-                        <div id="modal-buttons">
-                            <i class="material-icons" id="favorite-button">favorite</i>
-                            <i class="fab material-icons fa-facebook"></i>
-                            <i class="fab material-icons fa-twitter"></i>
-                        </div>
+
 
                     </div>
 

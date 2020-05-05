@@ -126,16 +126,15 @@ jQuery(document).ready(function () {
     jQuery("#favorite-button").click(function () {
         toggleFavorite(this);
     })
-    span.onclick = function () {
-        clearModal();
-    }
     window.onclick = function (event) {
         if (event.target == modal) {
             clearModal();
-        }
-        if (event.target == searchModal) {
+        } else if (event.target == searchModal) {
             applySearch();
             clearSearchModal();
+        } else if (event.target ==
+            document.getElementById("info-modal")) {
+            $("#info-modal").attr("visible", "false");
         }
     }
 
@@ -150,15 +149,12 @@ jQuery(document).ready(function () {
             $("#github-logo").attr('src', "images/GitHub-Logos/GitHub_Logo.png")
         }
 
+    });
+
+    $("#help-icon").click(function () {
+        $("#info-modal").attr("visible", "true");
     })
 
-    $(".fa-facebook").click(function () {
-
-    });
-
-    $(".fa-twitter").click(function () {
-
-    });
 
     window.addEventListener('resize', function () {
         $(".grid-item-media").width($(grid).width() * 21.0 / 65.0);
@@ -207,11 +203,13 @@ function animateClearOut() {
 }
 // Make the optional search filters modal invisible
 function clearSearchModal() {
-    searchModal.style.display = "none";
+    $("#search-modal").attr("visible", "false");
+    // searchModal.style.display = "none";
 }
 
 function showSearchModal() {
-    searchModal.style.display = "block";
+    $("#search-modal").attr("visible", "true");
+    // searchModal.style.display = "block";
 }
 //Called when apply search button is pressed
 function applySearch() {
@@ -229,7 +227,7 @@ $('#searchform').on("paste", function (e) {
 // Clear the modal (the window opened when you click on a search result)
 function clearModal() {
     // modal.style.display = "none";
-    modal.setAttribute("visible", "false");
+    $(".modal").attr("visible", "false");
     modalVideo.pause();
     modalAudio.pause()
     modalVideo.style.display = "none";
@@ -320,7 +318,7 @@ function goPrev() {
 //  media_type: the requested element's media type
 //RETURNS:
 //  none
-function showItem(data, Grid) {
+function showItem(data) {
     var nasa_id = data.nasa_id;
     var media_type = data.media_type;
     var title = data.title;
@@ -354,7 +352,7 @@ function showItem(data, Grid) {
     div.appendChild(img);
     div.appendChild(overlayTitle);
     $(img).width($(grid).width() * 21.0 / 65.0);
-    Grid.appendChild(div);
+    grid.appendChild(div);
 
 }
 //Shows the favorites grid
@@ -495,6 +493,17 @@ function showData(element) {
             console.log(media_type);
             break;
     }
+    $("#facebook-share").attr("href",
+        "https://www.facebook.com/sharer/sharer.php?u=" +
+        escape("https://images-assets.nasa.gov/" + data.media_type + "/" +
+            nasa_id + "/" + nasa_id + "~orig.jpg")
+    );
+
+    $("#pinterest-share").attr("href",
+        "https://pinterest.com/pin/create/button/?url=NASA&media=" +
+        escape("https://images-assets.nasa.gov/" + data.media_type + "/" +
+            nasa_id + "/" + nasa_id + "~orig.jpg")
+    );
 
 
     // modal.style.display = "block";
