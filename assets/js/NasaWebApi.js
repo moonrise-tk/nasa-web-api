@@ -447,7 +447,7 @@ function showData(element) {
         modalDescription.textContent = data.description;
     }
     modalCenter.textContent = data.center;
-    modalDateCreated.textContent = data.date_created;
+    modalDateCreated.textContent = data.date_created.split("T")[0];
     if (data.keywords) {
         modalKeywords.textContent = data.keywords.join(', ');
     }
