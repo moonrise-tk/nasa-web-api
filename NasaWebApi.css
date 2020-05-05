@@ -190,14 +190,18 @@ body {
 .search-filter-text {
     font-size: 20px;
     font-weight: bold;
-    padding-bottom: 5px;
-    padding-top: 10px;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .search-description {
     font-size: 15px;
     font-weight: 100;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+#modal-keywords {
+    margin-bottom: 15px;
 }
 
 .search-filter-text, .search-description {
@@ -384,11 +388,11 @@ body {
 .modal-content {
     display: inline-flex;
     background-color: var(--main-bg);
-    /* max-width: 80%; */
+    max-width: 85%;
     /* Could be more or less, depending on screen size */
     /* height: auto; */
     overflow: auto;
-    max-height: 85%;
+    max-height: 80%;
     padding: 20px;
     text-align: center;
     border-radius: 5px;
@@ -401,7 +405,7 @@ body {
     /* justify-content: center; */
     /* float: left; */
     max-height: 100%;
-    max-width: 40%;
+    /* max-width: 50%; */
     margin: 0;
     margin-right: 20px;
     text-align: center;
@@ -411,24 +415,25 @@ body {
 
 .modal-media {
     display: none;
-    object-fit: contain;
+    object-fit: scale-down;
     width: 100%;
-    /* max-height: 100%; */
+    max-height: 100%;
     margin: auto;
 }
 
 .modal-text {
     display: inline-block;
     text-align: left;
-    max-width: 400px;
+    max-width: 40%;
     vertical-align: top;
 }
 
 #modal-buttons {
     height: 60px;
     margin: 0 auto;
-    padding: 10px 0;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 /* The Close Button */
@@ -466,9 +471,9 @@ body {
     left: 10px;
 }
 
-#favorite-button-container {
-    padding-top: 15px;
-    height: 100%;
+#favorite-button {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #favorite-button[selected="false"] {
@@ -495,4 +500,39 @@ body {
 
 #favorite-grid {
     display: none;
+}
+
+#find-similar-button-wrapper {
+    margin-top: 10px;
+}
+
+/* Style all font awesome icons */
+
+.fab {
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 25px;
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+/* Add a hover effect if you want */
+
+.fab:hover {
+    color: var(--main-accent);
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+
+.fa-facebook {
+    color: #3B5998;
+}
+
+/* Twitter */
+
+.fa-twitter {
+    color: #55ACEE;
 }

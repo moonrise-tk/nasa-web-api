@@ -152,6 +152,14 @@ jQuery(document).ready(function () {
 
     })
 
+    $(".fa-facebook").click(function () {
+
+    });
+
+    $(".fa-twitter").click(function () {
+
+    });
+
     window.addEventListener('resize', function () {
         $(".grid-item-media").width($(grid).width() * 21.0 / 65.0);
     }, true);
@@ -432,7 +440,6 @@ function imgNotFound(img) {
 //RETURNS:
 //  none
 function showData(element) {
-    console.log("Hello");
     media_type = element.getAttribute('media-type');
     nasa_id = element.id;
     data = JSON.parse(sessionStorage.getItem(nasa_id));
