@@ -318,7 +318,7 @@ function goPrev() {
 //  media_type: the requested element's media type
 //RETURNS:
 //  none
-function showItem(data) {
+function showItem(data, Grid) {
     var nasa_id = data.nasa_id;
     var media_type = data.media_type;
     var title = data.title;
@@ -351,8 +351,8 @@ function showItem(data) {
     overlayTitle.textContent = title;
     div.appendChild(img);
     div.appendChild(overlayTitle);
-    $(img).width($(grid).width() * 21.0 / 65.0);
-    grid.appendChild(div);
+    $(img).width($(Grid).width() * 21.0 / 65.0);
+    Grid.appendChild(div);
 
 }
 //Shows the favorites grid
@@ -541,6 +541,7 @@ function checkAudioSource(element) {
 //RETURNS:
 //  none
 function findSimilar() {
+    hideFavorites();
     var keywords = JSON.parse(sessionStorage.getItem(nasa_id)).keywords.toString();
     var searchKeywords = "https://images-api.nasa.gov/search?keywords=" + keywords;
     clearGrid(grid);

@@ -521,13 +521,13 @@ body {
 
 #find-similar-button-wrapper {
     margin-top: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 /* Style all font awesome icons */
 
 .fab {
-    font-size: 20px;
+    font-size: 23px;
     margin-left: 10px;
     margin-right: 10px;
     width: 25px;
