@@ -141,12 +141,12 @@ jQuery(document).ready(function () {
     $("#toggle-switch-ring").click(function () {
         if (document.getElementById("toggle-switch").getAttribute('selected') == "false") {
             document.getElementById("toggle-switch").setAttribute('selected', "true");
-            $("#theme").attr('href', "darkTheme.css");
-            $("#github-logo").attr('src', "images/GitHub-Logos/GitHub_Logo_White.png")
+            $("#theme").attr('href', "assets/css/darkTheme.css");
+            $("#github-logo").attr('src', "assets/images/GitHub-Logos/GitHub_Logo_White.png")
         } else {
             document.getElementById("toggle-switch").setAttribute('selected', "false");
-            $("#theme").attr('href', "regularTheme.css");
-            $("#github-logo").attr('src', "images/GitHub-Logos/GitHub_Logo.png")
+            $("#theme").attr('href', "assets/css/regularTheme.css");
+            $("#github-logo").attr('src', "assets/images/GitHub-Logos/GitHub_Logo.png")
         }
 
     });
@@ -331,7 +331,7 @@ function showItem(data) {
 
     }
     else if (media_type === "audio") {
-        var src = "images/headphone-01.png";
+        var src = "assets/images/headphone-01.png";
     }
     else {
         return;
@@ -429,7 +429,7 @@ function toggleFavorite(element) {
 //  none
 function imgNotFound(img) {
     nasa_id = img.firstChild.className;
-    img.src = "images/notfound-01.png"
+    img.src = "assets/images/notfound-01.png"
 }
 //This is the function that shows data for an element the user clicks on.
 //It shows the requested data in the displayed modal.

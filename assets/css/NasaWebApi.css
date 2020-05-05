@@ -537,6 +537,7 @@ body {
 
 .fas {
     font-size: 20px;
+    color: var(--second-accent);
 }
 
 /* Add a hover effect if you want */
