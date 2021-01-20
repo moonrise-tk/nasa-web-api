@@ -1,192 +1,287 @@
 <html>
+    <head>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link id="theme" rel="stylesheet" href="assets/css/regularTheme.css" />
+        <link rel="stylesheet" href="assets/css/NasaWebApi.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="assets/js/NasaWebApi.js"></script>
+    </head>
 
-<head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link id="theme" rel="stylesheet" href="assets/css/regularTheme.css">
-    <link rel="stylesheet" href="assets/css/NasaWebApi.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="assets/js/NasaWebApi.js"></script>
-</head>
-
-<body>
-    <div id="header">
-        <div id="toggle-switch-ring">
-            <div id="toggle-switch" selected="false">
+    <body>
+        <div id="header">
+            <div id="toggle-switch-ring">
+                <div id="toggle-switch" selected="false"></div>
             </div>
-        </div>
-        <i class="material-icons" selected="false" id="help-icon">help</i>
-        <div id="info-modal" class="modal" visible="false">
-            <!-- Modal content -->
-            <div id="info-modal-content" class="modal-content">
-                <i class="fas fa-rocket"></i>
-                <div class="info-modal-text-container">
-                    This tool lets you access NASA's image and video library, by using NASA's media API. You can search
-                    for any terms in the search bar and filter your results using the optional search filters. Clicking
-                    on a result opens a modal that contains various information about the image.
-                </div>
-                <i class="fas fa-heart"></i>
-                <div class="info-modal-text-container">
-                    To save images for later, you
-                    can favorite them by clicking on the heart icon in their description box.
-                    To see your favorited pictures, click the heart
-                    icon, and to get out of the favorites, click the heart icon again.
-                </div>
-                <i class="fas fa-search"></i>
-                <div class="info-modal-text-container">
-                    The optional search filters let you specify dates to bound the picture by, keywords that you may
-                    want
-                    and which NASA center you want the images to be from.
-                    You can also search for
-                    similar images to a result you're looking at using the "Find Similar by Keywords" button.
-                </div>
-                <i class="fas fa-star"></i>
-                <div class="info-modal-text-container">
-                    Finally, you can share any of the images to facebook or pinterest if you wish.
-                    To see the source code for the
-                    project, the Github link for the project is on the top right. There's also a toggle that switches
-                    the
-                    website to dark mode.
-                </div>
-            </div>
-
-        </div>
-        <a href="https://github.com/tklightningfast/nasa-web-api" target="_blank">
-            <img src="assets/images/GitHub-Logos/GitHub_Logo.png" height="25px" id="github-logo">
-        </a>
-
-    </div>
-    <div id="body-container">
-        <div class="widget-container">
-            <center>
-                <input class="text-input" id="searchform" value="Enter search terms . . .">
-            </center>
-        </div>
-        <div class="widget-container button-wrapper">
-            <center>
-                <a href="#" class="button" role="button" id="button-nasa-api">
-                    <span class="button-text">Search NASA database</span>
-                </a>
-
-            </center>
-        </div>
-        <div class="widget-container">
-            <div id="search-modal" class="modal" visible="false">
+            <i class="material-icons" selected="false" id="help-icon">help</i>
+            <div id="info-modal" class="modal" visible="false">
                 <!-- Modal content -->
-                <div id="search-modal-content" class="modal-content">
-                    <center>
-                        <div id="search-modal-title">Optional
-                            search filters</div>
+                <div id="info-modal-content" class="modal-content">
+                    <i class="fas fa-rocket"></i>
+                    <div class="info-modal-text-container">
+                        This tool lets you access NASA's image and video
+                        library, by using NASA's media API. You can search for
+                        any terms in the search bar and filter your results
+                        using the optional search filters. Clicking on a result
+                        opens a modal that contains various information about
+                        the image.
+                    </div>
+                    <i class="fas fa-heart"></i>
+                    <div class="info-modal-text-container">
+                        To save images for later, you can favorite them by
+                        clicking on the heart icon in their description box. To
+                        see your favorited pictures, click the heart icon, and
+                        to get out of the favorites, click the heart icon again.
+                    </div>
+                    <i class="fas fa-search"></i>
+                    <div class="info-modal-text-container">
+                        The optional search filters let you specify dates to
+                        bound the picture by, keywords that you may want and
+                        which NASA center you want the images to be from. You
+                        can also search for similar images to a result you're
+                        looking at using the "Find Similar by Keywords" button.
+                    </div>
+                    <i class="fas fa-star"></i>
+                    <div class="info-modal-text-container">
+                        Finally, you can share any of the images to facebook or
+                        pinterest if you wish. To see the source code for the
+                        project, the Github link for the project is on the top
+                        right. There's also a toggle that switches the website
+                        to dark mode.
+                    </div>
+                </div>
+            </div>
+            <a
+                href="https://github.com/tklightningfast/nasa-web-api"
+                target="_blank"
+            >
+                <img
+                    src="assets/images/GitHub-Logos/GitHub_Logo.png"
+                    height="25px"
+                    id="github-logo"
+                />
+            </a>
+        </div>
+        <div id="body-container">
+            <div class="widget-container">
+                <center>
+                    <input
+                        class="text-input"
+                        id="searchform"
+                        value="Enter search terms . . ."
+                    />
+                </center>
+            </div>
+            <div class="widget-container button-wrapper">
+                <center>
+                    <a
+                        href="#"
+                        class="button"
+                        role="button"
+                        id="button-nasa-api"
+                    >
+                        <span class="button-text">Search NASA database</span>
+                    </a>
+                </center>
+            </div>
+            <div class="widget-container">
+                <div id="search-modal" class="modal" visible="false">
+                    <!-- Modal content -->
+                    <div id="search-modal-content" class="modal-content">
+                        <center>
+                            <div id="search-modal-title">
+                                Optional search filters
+                            </div>
 
-                        <div class="search-filter-text">Year bounds: </div>
-                        <div class="search-description">The start and end
-                            years as a bound for your search. You can
-                            specify one, both, or neither.</div>
-                        <input id="search-modal-start-date-created" class="text-input search-text-input"
-                            onfocus="this.value=''">
-                        <input id="search-modal-end-date-created" class="text-input search-text-input"
-                            onfocus="this.value=''">
-                        <div class="search-filter-text">Center: </div>
-                        <div class="search-description">The NASA center
-                            associated with your search.</div>
-                        <input id="search-modal-center" class="text-input
-                                search-text-input" onfocus="this.value=''">
-                        <div class="search-filter-text">Keywords: </div>
-                        <div class="search-description">Separate your values
-                            by commas.</div>
-                        <input id="search-modal-keywords" class="text-input search-text-input" onfocus="this.value=''">
-                        <div class="widget-container button-wrapper">
-                            <center>
-                                <a href="#" class="button" role="button" id="apply-search-button">
-                                    <span class="button-text">Apply</span>
+                            <div class="search-filter-text">Year bounds:</div>
+                            <div class="search-description">
+                                The start and end years as a bound for your
+                                search. You can specify one, both, or neither.
+                            </div>
+                            <input
+                                id="search-modal-start-date-created"
+                                class="text-input search-text-input"
+                                onfocus="this.value=''"
+                            />
+                            <input
+                                id="search-modal-end-date-created"
+                                class="text-input search-text-input"
+                                onfocus="this.value=''"
+                            />
+                            <div class="search-filter-text">Center:</div>
+                            <div class="search-description">
+                                The NASA center associated with your search.
+                            </div>
+                            <input
+                                id="search-modal-center"
+                                class="text-input search-text-input"
+                                onfocus="this.value=''"
+                            />
+                            <div class="search-filter-text">Keywords:</div>
+                            <div class="search-description">
+                                Separate your values by commas.
+                            </div>
+                            <input
+                                id="search-modal-keywords"
+                                class="text-input search-text-input"
+                                onfocus="this.value=''"
+                            />
+                            <div class="widget-container button-wrapper">
+                                <center>
+                                    <a
+                                        href="#"
+                                        class="button"
+                                        role="button"
+                                        id="apply-search-button"
+                                    >
+                                        <span class="button-text">Apply</span>
+                                    </a>
+                                </center>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <i class="material-icons" selected="false" id="favorites"
+                    >favorite</i
+                >
+                <span id="clear-button-container">
+                    <a class="text" id="clear-button">Clear favorites</a>
+                </span>
+                <span class="right-align">
+                    <a class="text" id="optional-search-filters-text"
+                        >Optional search filters</a
+                    >
+                </span>
+            </div>
+            <div>
+                <div id="modal" class="modal" visible="false">
+                    <!-- Modal content -->
+                    <div id="modal-content" class="modal-content">
+                        <div class="modal-media-container">
+                            <img
+                                id="modal-image"
+                                class="modal-media"
+                                onerror="imgNotFound(this)"
+                            />
+                            <audio
+                                id="modal-audio"
+                                class="modal-media"
+                                onerror="imgNotFound(this)"
+                                controls
+                            >
+                                <source id="audio-source" type="audio/mpeg" />
+                                Your browser does not support the audio tag
+                            </audio>
+                            <video
+                                id="modal-video"
+                                class="modal-media"
+                                onerror="imgNotFound(this)"
+                                controls
+                            >
+                                <source id="video-source" type="video/mp4" />
+                                Your browser does not support the video tag
+                            </video>
+                            <div id="modal-buttons">
+                                <i class="material-icons" id="favorite-button"
+                                    >favorite</i
+                                >
+                                <a id="facebook-share" target="_blank">
+                                    <i
+                                        class="fab material-icons fa-facebook"
+                                    ></i>
                                 </a>
-                            </center>
+                                <a id="pinterest-share" target="_blank">
+                                    <i
+                                        class="fab material-icons fa-pinterest"
+                                    ></i>
+                                </a>
+                            </div>
                         </div>
-                    </center>
-                </div>
-            </div>
-            <i class="material-icons" selected="false" id="favorites">favorite</i>
-            <span id="clear-button-container">
-                <a class="text" id="clear-button">Clear favorites</a>
-            </span>
-            <span class="right-align">
-                <a class="text" id="optional-search-filters-text">Optional
-                    search filters</a>
-            </span>
-        </div>
-        <div>
-            <div id="modal" class="modal" visible="false">
-                <!-- Modal content -->
-                <div id="modal-content" class="modal-content">
-                    <div class="modal-media-container">
-                        <img id="modal-image" class="modal-media" onerror="imgNotFound(this)">
-                        <audio id="modal-audio" class="modal-media" onerror="imgNotFound(this)" controls>
-                            <source id="audio-source" type="audio/mpeg">
-                            Your browser does not support the audio tag
-                        </audio>
-                        <video id="modal-video" class="modal-media" onerror="imgNotFound(this)" controls>
-                            <source id="video-source" type="video/mp4">
-                            Your browser does not support the video tag
-                        </video>
-                        <div id="modal-buttons">
-                            <i class="material-icons" id="favorite-button">favorite</i>
-                            <a id="facebook-share" target="_blank">
-                                <i class="fab material-icons fa-facebook"></i>
-                            </a>
-                            <a id="pinterest-share" target="_blank">
-                                <i class="fab material-icons fa-pinterest"></i>
-                            </a>
+                        <div class="modal-text">
+                            <span id="close-button" class="close">&times;</span>
+                            <div id="modal-title"></div>
+                            <span
+                                id="modal-description"
+                                class="search-description"
+                            ></span>
+                            <div class="modal-text-container">
+                                <span class="search-filter-text"
+                                    >Date created:
+                                </span>
+                                <span
+                                    id="modal-date-created"
+                                    class="search-description"
+                                ></span>
+                            </div>
+                            <div class="modal-text-container">
+                                <span class="search-filter-text">Center: </span>
+                                <span
+                                    id="modal-center"
+                                    class="search-description"
+                                ></span>
+                            </div>
+                            <div class="modal-text-container">
+                                <span class="search-filter-text"
+                                    >Keywords:
+                                </span>
+                                <span
+                                    id="modal-keywords"
+                                    class="search-description"
+                                ></span>
+                            </div>
+                            <div
+                                class="button-wrapper"
+                                id="find-similar-button-wrapper"
+                            >
+                                <a
+                                    href="#"
+                                    class="button"
+                                    role="button"
+                                    id="find-similar-button"
+                                >
+                                    <span class="button-text"
+                                        >Find similar by keywords</span
+                                    >
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="modal-text">
-                        <span id="close-button" class="close">&times;</span>
-                        <div id="modal-title"></div>
-                        <span id="modal-description" class="search-description"></span>
-                        <div class="modal-text-container">
-                            <span class="search-filter-text">Date created: </span>
-                            <span id="modal-date-created" class="search-description"></span>
-                        </div>
-                        <div class="modal-text-container">
-                            <span class="search-filter-text">Center: </span>
-                            <span id="modal-center" class="search-description"></span>
-                        </div>
-                        <div class="modal-text-container">
-                            <span class="search-filter-text">Keywords: </span>
-                            <span id="modal-keywords" class="search-description"></span>
-                        </div>
-                        <div class="button-wrapper" id="find-similar-button-wrapper">
-                            <a href="#" class="button" role="button" id="find-similar-button">
-                                <span class="button-text">Find similar by keywords</span>
-                            </a>
-                        </div>
-
-
-                    </div>
-
                 </div>
-
             </div>
+            <div class="widget-container">
+                <link
+                    rel="stylesheet"
+                    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+                    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+                    crossorigin="anonymous"
+                />
+                <p id="metadata"></p>
+                <p id="favorites-metadata"></p>
+                <i
+                    id="prev-button"
+                    class="fas fa-arrow-left"
+                    onclick="sendHTTP(goPrev(), parseResponse);"
+                ></i>
+                <i
+                    id="next-button"
+                    class="fas fa-arrow-right"
+                    onclick="sendHTTP(goNext(), parseResponse);"
+                ></i>
+            </div>
+
+            <!-- The grid to contain grid items -->
+            <center>
+                <div id="grid" class="grid"></div>
+            </center>
+            <center>
+                <div id="favorite-grid" class="grid"></div>
+            </center>
         </div>
-        <div class="widget-container">
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-                integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-                crossorigin="anonymous">
-            <p id="metadata"></p>
-            <p id="favorites-metadata"></p>
-            <i id="prev-button" class="fas fa-arrow-left" onclick="sendHTTP(goPrev(), parseResponse);"></i>
-            <i id="next-button" class="fas fa-arrow-right" onclick="sendHTTP(goNext(), parseResponse);"></i>
-        </div>
-
-        <!-- The grid to contain grid items -->
-        <center>
-            <div id="grid" class="grid">
-            </div>
-        </center>
-        <center>
-            <div id="favorite-grid" class="grid">
-            </div>
-        </center>
-    </div>
-</body>
-
+    </body>
 </html>
