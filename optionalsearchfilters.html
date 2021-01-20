@@ -1,9 +1,11 @@
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <style>
         .text {
             color: var(--second);
-            font-family: Roboto;
             font-weight: 500;
             font-size: 15px;
         }
@@ -102,32 +104,61 @@
     <div id="search-modal-content" class="modal-content">
         <center>
             <span id="search-close" class="close">&times;</span>
-            <div id="search-modal-title" style="font-weight: 900;font-size: 60;text-align:center;">Optional search
-                filters</div>
+            <div
+                id="search-modal-title"
+                style="font-weight: 900; font-size: 60; text-align: center"
+            >
+                Optional search filters
+            </div>
 
-            <div class="search-filter-text">Year bounds: </div>
-            <div class="search-description">The start and end years as a bound for your search. You can specify one,
-                both, or neither.</div>
-            <input id="search-modal-start-date-created" class="search-input" onfocus="this.value=''">
-            <input id="search-modal-end-date-created" class="search-input" onfocus="this.value=''">
-            <div class="search-filter-text">Center: </div>
-            <div class="search-description">The NASA center associated with your search.</div>
-            <input id="search-modal-center" class="search-input" onfocus="this.value=''">
-            <div class="search-filter-text">Keywords: </div>
-            <div class="search-description">Separate your values by commas.</div>
-            <input id="search-modal-keywords" class="search-input" onfocus="this.value=''">
+            <div class="search-filter-text">Year bounds:</div>
+            <div class="search-description">
+                The start and end years as a bound for your search. You can
+                specify one, both, or neither.
+            </div>
+            <input
+                id="search-modal-start-date-created"
+                class="search-input"
+                onfocus="this.value=''"
+            />
+            <input
+                id="search-modal-end-date-created"
+                class="search-input"
+                onfocus="this.value=''"
+            />
+            <div class="search-filter-text">Center:</div>
+            <div class="search-description">
+                The NASA center associated with your search.
+            </div>
+            <input
+                id="search-modal-center"
+                class="search-input"
+                onfocus="this.value=''"
+            />
+            <div class="search-filter-text">Keywords:</div>
+            <div class="search-description">
+                Separate your values by commas.
+            </div>
+            <input
+                id="search-modal-keywords"
+                class="search-input"
+                onfocus="this.value=''"
+            />
         </center>
-        <div data-id="fcde912"
+        <div
+            data-id="fcde912"
             class="elementor-element elementor-element-fcde912 elementor-align-center elementor-widget elementor-widget-button"
-            data-element_type="button.default" id="apply-search-button">
-
+            data-element_type="button.default"
+            id="apply-search-button"
+        >
             <div class="elementor-widget-container">
                 <div class="elementor-button-wrapper">
-                    <a class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                    <a
+                        class="elementor-button-link elementor-button elementor-size-sm"
+                        role="button"
+                    >
                         <span class="elementor-button-content-wrapper">
-                            <span class="elementor-button-text">
-                                Apply
-                            </span>
+                            <span class="elementor-button-text"> Apply </span>
                         </span>
                     </a>
                 </div>
@@ -140,5 +171,7 @@
     <a class="text" id="clear-button">Clear favorites</a>
 </span>
 <span class="right-align">
-    <a class="text" id="optional-search-filters-text">Optional search filters</a>
+    <a class="text" id="optional-search-filters-text"
+        >Optional search filters</a
+    >
 </span>
